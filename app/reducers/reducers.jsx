@@ -1,4 +1,4 @@
-var uuid =require('node-uuid');
+var uuid = require('node-uuid');
 var moment = require('moment');
 
 export var searchTextReducer = (state = '', action) => {
@@ -16,7 +16,7 @@ export var showCompletedReducer = (state = false, action) => {
       return !state;
     default:
       return state;
-  };
+  }
 };
 
 export var todosReducer = (state = [], action) => {
@@ -34,7 +34,7 @@ export var todosReducer = (state = [], action) => {
             ...action.updates
           };
         } else {
-            return todo;
+          return todo;
         }
       });
     case 'ADD_TODOS':

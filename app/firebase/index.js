@@ -2,18 +2,16 @@ import firebase from 'firebase';
 
 try {
   var config = {
-      apiKey: "AIzaSyDyZA41KOSZw22u3NzstPHwplRFQOIPmCk",
-      authDomain: "al-ameen-todo-app.firebaseapp.com",
-      databaseURL: "https://al-ameen-todo-app.firebaseio.com",
-      projectId: "al-ameen-todo-app",
-      storageBucket: "al-ameen-todo-app.appspot.com",
-      messagingSenderId: "278266521904"
-    };
-    firebase.initializeApp(config);
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    storageBucket: process.env.STORAGE_BUCKET,
+  };
 
+  firebase.initializeApp(config);
 } catch (e) {
 
 }
 
-  export var firebaseRef = firebase.database().ref();
-  export default firebase;
+export var firebaseRef = firebase.database().ref();
+export default firebase;
