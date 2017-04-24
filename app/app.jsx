@@ -11,6 +11,7 @@ import router from 'app/router/';
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login(user.uid));
+    store.dispatch(actions.startAddTodos());
     hashHistory.push('/todos');
   } else {
     store.dispatch(actions.logout());
@@ -18,15 +19,11 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-store.dispatch(actions.startAddTodos());
-
-require('style!css!foundation-sites/dist/css/foundation.min.css')
+// Load foundation
 $(document).foundation();
 
 // App css
 require('style!css!sass!applicationStyles')
-
-
 
 ReactDOM.render(
   <Provider store={store}>
